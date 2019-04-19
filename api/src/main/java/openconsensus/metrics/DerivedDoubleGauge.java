@@ -19,7 +19,6 @@ package openconsensus.metrics;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import javax.annotation.concurrent.ThreadSafe;
-import openconsensus.common.ToDoubleFunction;
 
 /**
  * Derived Double Gauge metric, to report instantaneous measurement of a double value. Gauges can go
@@ -30,7 +29,7 @@ import openconsensus.common.ToDoubleFunction;
  * <pre>{@code
  * class YourClass {
  *
- *   private static final MetricRegistry metricRegistry = Metrics.getMetricRegistry();
+ *   private static final MetricCollection metricRegistry = Metrics.getMetricRegistry();
  *
  *   List<LabelKey> labelKeys = Arrays.asList(LabelKey.create("Name", "desc"));
  *   List<LabelValue> labelValues = Arrays.asList(LabelValue.create("Inbound"));

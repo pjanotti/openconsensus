@@ -28,7 +28,7 @@ import javax.annotation.concurrent.ThreadSafe;
  * <pre>{@code
  * class YourClass {
  *
- *   private static final MetricRegistry metricRegistry = Metrics.getMetricRegistry();
+ *   private static final MetricCollection metricRegistry = Metrics.getMetricRegistry();
  *
  *   List<LabelKey> labelKeys = Arrays.asList(LabelKey.create("Name", "desc"));
  *
@@ -50,7 +50,7 @@ import javax.annotation.concurrent.ThreadSafe;
  * <pre>{@code
  * class YourClass {
  *
- *   private static final MetricRegistry metricRegistry = Metrics.getMetricRegistry();
+ *   private static final MetricCollection metricRegistry = Metrics.getMetricRegistry();
  *
  *   List<LabelKey> labelKeys = Arrays.asList(LabelKey.create("Name", "desc"));
  *   List<LabelValue> labelValues = Arrays.asList(LabelValue.create("Inbound"));
@@ -82,12 +82,12 @@ public abstract class LongGauge {
    * for manual operations.
    *
    * @param labelValues the list of label values. The number of label values must be the same to
-   *     that of the label keys passed to {@link MetricRegistry#addLongGauge}.
+   *     that of the label keys passed to {@link MetricCollection#addLongGauge}.
    * @return a {@code LongPoint} the value of single gauge.
    * @throws NullPointerException if {@code labelValues} is null OR any element of {@code
    *     labelValues} is null.
    * @throws IllegalArgumentException if number of {@code labelValues}s are not equal to the label
-   *     keys passed to {@link MetricRegistry#addLongGauge}.
+   *     keys passed to {@link MetricCollection#addLongGauge}.
    * @since 0.1.0
    */
   public abstract LongPoint getOrCreateTimeSeries(List<LabelValue> labelValues);

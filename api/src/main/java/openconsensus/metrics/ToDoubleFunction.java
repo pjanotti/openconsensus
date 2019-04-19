@@ -17,22 +17,21 @@
 package openconsensus.metrics;
 
 /**
- * Class for accessing the default {@link Meter}.
+ * Represents a function that produces a double-valued result. See {@link MetricCollection} for an
+ * example of its use.
+ *
+ * <p>Note: This class is based on the java.util.ToDoubleFunction class added in Java 1.8. We cannot
+ * use the Function from Java 1.8 because this library is Java 1.6 compatible.
  *
  * @since 0.1.0
  */
-public final class Metrics {
-  private static final Meter METER = NoopMetrics.newNoopMeter();
+public interface ToDoubleFunction<T> {
 
   /**
-   * Returns the global {@link MetricCollection} with the provided implementation.
+   * Applies this function to the given argument.
    *
-   * @return the global {@code MetricCollection} with the provided implementation.
-   * @since 0.1.0
+   * @param value the function argument.
+   * @return the function result.
    */
-  public static Meter getMeter() {
-    return METER;
-  }
-
-  private Metrics() {}
+  double applyAsDouble(T value);
 }

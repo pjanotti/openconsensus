@@ -16,15 +16,14 @@
 
 package openconsensus.metrics;
 
-import openconsensus.common.ToDoubleFunction;
-import openconsensus.common.ToLongFunction;
+import openconsensus.resource.Resource;
 
 /**
  * Creates and manages your collection set of metrics.
  *
  * @since 0.1.0
  */
-public abstract class MetricRegistry {
+public abstract class MetricCollection {
 
   /**
    * Builds a new long gauge to be added to the registry. This is more convenient form when you want
@@ -77,4 +76,37 @@ public abstract class MetricRegistry {
    * @since 0.1.0
    */
   public abstract DerivedDoubleGauge addDerivedDoubleGauge(String name, MetricOptions options);
+
+  /** Builder class for the {@link MetricCollection}. */
+  public abstract static class Builder {
+
+    /**
+     * Sets the name of the component that reports these metrics.
+     *
+     * <p>The final name of the reported metric will be <code>component + "_" + name</code> if the
+     * component is not empty.
+     *
+     * @param component the name of the component that reports these metrics.
+     * @return this.
+     */
+    public abstract Builder setComponent(String component);
+
+    /**
+     * Sets the {@code Resource} associated with the new {@code MetricCollection}.
+     *
+     * <p>This should be set only when reporting out-of-band metrics, otherwise the implementation
+     * will set the {@code Resource} for in-process metrics.
+     *
+     * @param resource the {@code Resource} associated with the new {@code MetricCollection}.
+     * @return this.
+     */
+    public abstract Builder setResource(Resource resource);
+
+    /**
+     * Builds and returns a {@link MetricCollection} with the desired options.
+     *
+     * @return a {@link MetricCollection} with the desired options.
+     */
+    public abstract MetricCollection build();
+  }
 }

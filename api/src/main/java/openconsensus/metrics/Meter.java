@@ -14,25 +14,15 @@
  * limitations under the License.
  */
 
-package openconsensus.common;
+package openconsensus.metrics;
 
-import openconsensus.metrics.MetricRegistry;
+/** Entry point fot metrics API, this object allows to create new {@link MetricCollection}. */
+public abstract class Meter {
 
-/**
- * Represents a function that produces a long-valued result. See {@link MetricRegistry} for an
- * example of its use.
- *
- * <p>Note: This class is based on the java.util.ToLongFunction class added in Java 1.8. We cannot
- * use the Function from Java 1.8 because this library is Java 1.6 compatible.
- *
- * @since 0.1.0
- */
-public interface ToLongFunction<T> {
   /**
-   * Applies this function to the given argument.
+   * Returns a new builder for a {@code MetricCollection}.
    *
-   * @param value the function argument.
-   * @return the function result.
+   * @return a new builder for a {@code MetricCollection}.
    */
-  long applyAsLong(T value);
+  public abstract MetricCollection.Builder createMetricCollection();
 }

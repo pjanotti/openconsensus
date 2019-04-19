@@ -29,7 +29,7 @@ import openconsensus.opencensusshim.internal.Utils;
  * <pre>{@code
  * class YourClass {
  *
- *   private static final MetricRegistry metricRegistry = Metrics.getMetricRegistry();
+ *   private static final MetricCollection metricRegistry = Metrics.getMetricRegistry();
  *
  *   List<LabelKey> labelKeys = Arrays.asList(LabelKey.create("Name", "desc"));
  *
@@ -51,7 +51,7 @@ import openconsensus.opencensusshim.internal.Utils;
  * <pre>{@code
  * class YourClass {
  *
- *   private static final MetricRegistry metricRegistry = Metrics.getMetricRegistry();
+ *   private static final MetricCollection metricRegistry = Metrics.getMetricRegistry();
  *
  *   List<LabelKey> labelKeys = Arrays.asList(LabelKey.create("Name", "desc"));
  *   List<LabelValue> labelValues = Arrays.asList(LabelValue.create("Inbound"));

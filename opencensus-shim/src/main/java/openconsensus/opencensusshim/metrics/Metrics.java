@@ -48,10 +48,10 @@ public final class Metrics {
   /**
    * Returns the global {@link MetricRegistry}.
    *
-   * <p>This {@code MetricRegistry} is already added to the global {@link
+   * <p>This {@code MetricCollection} is already added to the global {@link
    * openconsensus.opencensusshim.metrics.export.MetricProducerManager}.
    *
-   * @return the global {@code MetricRegistry}.
+   * @return the global {@code MetricCollection}.
    * @since 0.1.0
    */
   public static MetricRegistry getMetricRegistry() {

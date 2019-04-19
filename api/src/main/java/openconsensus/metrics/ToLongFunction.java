@@ -14,26 +14,23 @@
  * limitations under the License.
  */
 
-package openconsensus.common;
-
-import openconsensus.metrics.MetricRegistry;
+package openconsensus.metrics;
 
 /**
- * Represents a function that produces a double-valued result. See {@link MetricRegistry} for an
+ * Represents a function that produces a long-valued result. See {@link MetricCollection} for an
  * example of its use.
  *
- * <p>Note: This class is based on the java.util.ToDoubleFunction class added in Java 1.8. We cannot
+ * <p>Note: This class is based on the java.util.ToLongFunction class added in Java 1.8. We cannot
  * use the Function from Java 1.8 because this library is Java 1.6 compatible.
  *
  * @since 0.1.0
  */
-public interface ToDoubleFunction<T> {
-
+public interface ToLongFunction<T> {
   /**
    * Applies this function to the given argument.
    *
    * @param value the function argument.
    * @return the function result.
    */
-  double applyAsDouble(T value);
+  long applyAsLong(T value);
 }

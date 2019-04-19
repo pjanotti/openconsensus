@@ -27,7 +27,7 @@ import javax.annotation.concurrent.Immutable;
 import openconsensus.internal.Utils;
 
 /**
- * Options for every metric added to the {@link MetricRegistry}.
+ * Options for every metric added to the {@link MetricCollection}.
  *
  * @since 0.1.0
  */

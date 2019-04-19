@@ -28,7 +28,7 @@ import javax.annotation.concurrent.ThreadSafe;
  * <pre>{@code
  * class YourClass {
  *
- *   private static final MetricRegistry metricRegistry = Metrics.getMetricRegistry();
+ *   private static final MetricCollection metricRegistry = Metrics.getMetricRegistry();
  *
  *   List<LabelKey> labelKeys = Arrays.asList(LabelKey.create("Name", "desc"));
  *
@@ -51,7 +51,7 @@ import javax.annotation.concurrent.ThreadSafe;
  * <pre>{@code
  * class YourClass {
  *
- *   private static final MetricRegistry metricRegistry = Metrics.getMetricRegistry();
+ *   private static final MetricCollection metricRegistry = Metrics.getMetricRegistry();
  *
  *   List<LabelKey> labelKeys = Arrays.asList(LabelKey.create("Name", "desc"));
  *   List<LabelValue> labelValues = Arrays.asList(LabelValue.create("Inbound"));
@@ -84,7 +84,7 @@ public abstract class DoubleGauge {
    * method for manual operations.
    *
    * @param labelValues the list of label values. The number of label values must be the same to
-   *     that of the label keys passed to {@link MetricRegistry#addDoubleGauge}.
+   *     that of the label keys passed to {@link MetricCollection#addDoubleGauge}.
    * @return a {@code DoublePoint} the value of single gauge.
    * @throws NullPointerException if {@code labelValues} is null OR any element of {@code
    *     labelValues} is null.
